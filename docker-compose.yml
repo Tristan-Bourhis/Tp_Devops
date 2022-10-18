@@ -1,0 +1,38 @@
+version: '3.3'
+services:
+  backend:
+    container_name: backend
+    build: ./simple-api
+    networks:
+      - app-network
+    depends_on:
+      - database
+    restart: on-failure
+    volumes:
+      - database-data:/var/lib/postgresql/data
+
+  database:
+    container_name: database
+    restart: always
+    build: ./database
+    networks:
+      - app-network
+    env_file:
+      - database/.env
+
+  httpd:
+    container_name: reverse_proxy
+    build: ./httpd
+    ports:
+      - "80:80"
+    networks:
+      - app-network
+
+
+volumes:
+  database-data:
+
+networks:
+  app-network:
+
+
