@@ -8,7 +8,7 @@ on:
     
 
 jobs:
-  test-backend: 
+  test-simple-api: 
     runs-on: ubuntu-22.04
     steps:
      #checkout your github code using actions/checkout@v2.3.3
