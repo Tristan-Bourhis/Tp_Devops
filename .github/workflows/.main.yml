@@ -32,7 +32,7 @@ build-and-push-docker-image:
  # run only when code is compiling and tests are passing
  runs-on: ubuntu-latest
 
-# steps to perform in job
+  # steps to perform in job
  steps:
    - name: Checkout code
      uses: actions/checkout@v2
