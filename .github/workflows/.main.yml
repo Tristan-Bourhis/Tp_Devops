@@ -28,35 +28,35 @@ jobs:
 
   # define job to build and publish docker image
   build-and-push-docker-image:
-  needs: test-backend
-  # run only when code is compiling and tests are passing
-  runs-on: ubuntu-latest
+    needs: test-backend
+    # run only when code is compiling and tests are passing
+    runs-on: ubuntu-latest
 
-    # steps to perform in job
-  steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      # steps to perform in job
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Build image and push backend
-      uses: docker/build-push-action@v2 
-      with:
-        # relative path to the place where source code with Dockerfile is located
-        context: ./simple-api
-        # Note: tags has to be all lower-case
-        tags:  ${{secrets.DOCKER_HUB_TRISTAN}}/Tp_Devops:simple-api
+      - name: Build image and push backend
+        uses: docker/build-push-action@v2 
+        with:
+          # relative path to the place where source code with Dockerfile is located
+          context: ./simple-api
+          # Note: tags has to be all lower-case
+          tags:  ${{secrets.DOCKER_HUB_TRISTAN}}/Tp_Devops:simple-api
 
-    - name: Build image and push database
-      uses: docker/build-push-action@v2 
-      with:
-        # relative path to the place where source code with Dockerfile is located
-        context: ./database
-        # Note: tags has to be all lower-case
-        tags:  ${{secrets.DOCKER_HUB_TRISTAN}}/Tp_Devops:database
+      - name: Build image and push database
+        uses: docker/build-push-action@v2 
+        with:
+          # relative path to the place where source code with Dockerfile is located
+          context: ./database
+          # Note: tags has to be all lower-case
+          tags:  ${{secrets.DOCKER_HUB_TRISTAN}}/Tp_Devops:database
 
-    - name: Build image and push httpd
-      uses: docker/build-push-action@v2 
-      with:
-        # relative path to the place where source code with Dockerfile is located
-        context: ./httpd
-        # Note: tags has to be all lower-case
-        tags:  ${{secrets.DOCKER_HUB_TRISTAN}}/Tp_Devops:httpd
+      - name: Build image and push httpd
+        uses: docker/build-push-action@v2 
+        with:
+          # relative path to the place where source code with Dockerfile is located
+          context: ./httpd
+          # Note: tags has to be all lower-case
+          tags:  ${{secrets.DOCKER_HUB_TRISTAN}}/Tp_Devops:httpd
