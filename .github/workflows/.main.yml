@@ -21,6 +21,9 @@ jobs:
           java-version: 11
           java-package: jdk
 
+      - name: Node js   
+        uses: actions/checkout@v16
+
      #finally build your app with the latest command
       - name: Build and test with Maven
         run: mvn -B test --file backend/pom.xml
