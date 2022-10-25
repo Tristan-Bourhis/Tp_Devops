@@ -1,0 +1,8 @@
+- name: Run HTTPD
+  docker_container:
+    name: httpd
+    image: tristanbourhis/tp_devops:httpd
+    networks:
+      - name: app_network
+    ports:
+      - 80:80

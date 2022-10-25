@@ -21,13 +21,20 @@ services:
       - database/.env
 
   httpd:
-    container_name: reverse_proxy
+    container_name: backend
     build: ./httpd
     ports:
       - "80:80"
     networks:
       - app-network
 
+  front:
+    container_name: frontend
+    build: ./devops-front-main
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
 
 volumes:
   database-data:

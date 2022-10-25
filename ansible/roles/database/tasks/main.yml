@@ -1,0 +1,12 @@
+- name: Launch database and connect to network
+  docker_container:
+    name: database
+    image: tristanbourhis/tp_devops:database
+    state: started
+    env:
+      POSTGRES_USER: "usr"
+      POSTGRES_PASSWORD: "pwd"
+      POSTGRES_DB: "db"
+
+    networks:
+      - name: app_network

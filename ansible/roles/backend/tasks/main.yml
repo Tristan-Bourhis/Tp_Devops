@@ -1,0 +1,6 @@
+- name: Launch App/ Backend
+  docker_container:
+    name: backend
+    image: tristanbourhis/tp_devops:simple-api
+    networks:
+      - name: app_network     

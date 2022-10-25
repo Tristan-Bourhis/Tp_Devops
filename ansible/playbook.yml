@@ -1,0 +1,12 @@
+- hosts: all
+  gather_facts: false
+  become: yes
+
+# Install Docker
+  tasks:
+  roles:
+    - docker
+    - create_network
+    - httpd 
+    - database
+    - backend

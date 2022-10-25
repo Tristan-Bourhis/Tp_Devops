@@ -3,6 +3,8 @@ target/
 !**/src/main/**
 !**/src/test/**
 
+id_rsa
+
 ### STS ###
 .apt_generated
 .classpath
