@@ -5,18 +5,21 @@
 Le Dockerfile fournit à Docker les informations nécessaires à la création à la création d'une image docker.
 
 
-```FROM postgres:14.1-alpine
+```
+FROM postgres:14.1-alpine
 
 ENV POSTGRES_DB=db \
    POSTGRES_USER=usr \
-   POSTGRES_PASSWORD=pwd```
-
+   POSTGRES_PASSWORD=pwd
+```
 Ici on définit notre base données postgres ainsi que les variables d'environnement comme notamment l'utilisateur et le mot de passe.
 
 Les deux fichiers sql permettent quant à eux d'initialiser les tables de la base de données et de les remplir.
 
 Ensuite on créer un network sur lequel on pourra faire fonctionner et mettre en relation nos différents containers.
-```docker network create networkName```
+```
+docker network create networkName
+```
 
 La commande suivante va nous permettre de construire une image Docker.
 ```docker build -t database ```
