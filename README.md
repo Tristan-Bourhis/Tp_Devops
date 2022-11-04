@@ -25,11 +25,15 @@ La commande suivante va nous permettre de construire une image Docker.
 ```docker build -t database ```
 
 On peut ensuite créer un container Docker a partir de cette image grâce à la commande suivante
-```docker run --name database -v database-data:/var/lib/postgresql/data --network=networkName -d database```
+```
+docker run --name database -v database-data:/var/lib/postgresql/data --network=networkName -d database
+```
 Le paramètre "-v" nous permet de créer une variable d'environnement. Cela permet de stocker les données de manière permanente car un container docker est volatile. C'est à dire qu'une fois éteint, si les données ne sont pas stockées on les perd.
 
 On run ensuite le container adminer qui nous permettra de faire le lien avec la base de données.
-```docker run -p "8090:8080" --net=networkName --name=adminer -d adminer```
+```
+docker run -p "8090:8080" --net=networkName --name=adminer -d adminer
+```
 On définit ici un port avec "-p", grâce auquel on pourra accéder à la bdd, et on définit aussi le network en mettant le même que la database afin de les relier.
 
 ## 1-2 Why do we need a multistage build? And explain each step of this dockerfile.
